@@ -24,21 +24,21 @@ const DetailPage = () => {
   }, []);
 
   useEffect(() => {
-    makeRequest.get("/feeds/get-videos").then((res)=>{
-      const result = res?.data?.data?.results?.data
-      setList(result)
-    }).catch(error =>{
-      console.log(error)
-    })
-  }, [])
+    makeRequest.get("/feeds/get-videos").then((res) => {
+      const result = res?.data?.data?.results?.data;
+      setList(result);
+    }).catch(error => {
+      console.log(error);
+    });
+  }, []);
 
   return (
     <>
       <Navbar />
 
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3">
         {/* Section 1 */}
-        <div className="col-span-2 p-2 mt-5 ml-5">
+        <div className="md:col-span-2 p-2 mt-5 ml-5">
           <div className="h-[200px] md:h-[400px] lg:h-[400px] xl:h-[550px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
             <ReactPlayer
               url={data?.video}
@@ -80,8 +80,8 @@ const DetailPage = () => {
         </div>
 
         {/* Section 2 */}
-        <div className="col-span-1">
-          <SuggestedVideo   list = {list}/>
+        <div className="md:col-span-1">
+          <SuggestedVideo list={list} />
         </div>
       </div>
     </>
